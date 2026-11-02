@@ -1,136 +1,310 @@
+
 <article id="about">
-<div class="about-content">
 
-  <div class="main-title">
-  <p class="subtitle">PROCESSO SELETIVO</p>
-  <h1>FAÇA<br>PARTE DA<br>HI TECH</h1>
-  <p class="description">A Hi Tech é um espaço para aprender fazendo: projetos
-  reais, tecnologia aplicada e gente disposta a crescer junto.</p>
-  </div>
+  <!-- APRESENTAÇÃO PESSOAL -->
+  <div class="about-content">
 
-  <div class="form-wrapper">
-    <img class="background-shape" src="assets/Frame 2.svg" alt="" aria-hidden="true" />
+    <div class="main-title">
+      <p class="subtitle">MINHA TRAJETÓRIA</p>
 
-  <div class="form-card">
-  <form [formGroup]="form" (ngSubmit)="publishTask()">
+      <h1>
+        MUITO PRAZER,<br />
+        SOU JOÃO PAULO.
+      </h1>
 
-      <div class="text">
-        <p>Receba o aviso da próxima seleção</p>
-      </div>
-      <div class="form-group">
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" name="name" autocomplete="name" placeholder="Digite seu nome" formControlName="name" required [attr.aria-invalid]="showError('name')" [attr.aria-describedby]="showError('name') ? 'nome-error' : null" />
-        <app-field-error errorId="nome-error" [control]="form.get('name')" [messages]="{ required: 'Informe seu nome.', minlength: 'Use pelo menos 3 letras.' }"></app-field-error>
-      </div>
+      <p class="description">
+        Sou João Paulo Guilherme Silva, estudante de
+        Bacharelado em Sistemas de Informação na
+        Universidade Tecnológica Federal do Paraná (UTFPR),
+        Campus Curitiba.
 
-      <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" autocomplete="email" placeholder="voce@email.com" formControlName="email" required [attr.aria-invalid]="showError('email')" [attr.aria-describedby]="showError('email') ? 'email-error' : null" />
-        <app-field-error errorId="email-error" [control]="form.get('email')" [messages]="{ required: 'Informe seu e-mail.', email: 'Confira o e-mail: use o formato voce@email.com.' }"></app-field-error>
-      </div>
+        Sou uma pessoa curiosa, que gosta de aprender,
+        conhecer novas experiências e enfrentar desafios.
 
-      <div class="form-group">
-        <label for="periodo">Período da Faculdade</label>
-          <select id="periodo" name="period" formControlName="period" required [attr.aria-invalid]="showError('period')" [attr.aria-describedby]="showError('period') ? 'periodo-error' : null">
-            <option value="" disabled selected>Selecione um período</option>
-            <option value="1">1º Período</option>
-            <option value="2">2º Período</option>
-            <option value="3">3º Período</option>
-            <option value="4">4º Período</option>
-            <option value="5">5º Período</option>
-            <option value="6">6º Período</option>
-            <option value="7">7º Período</option>
-            <option value="8">8º Período</option>
-            <option value="9">9º Período</option>
-            <option value="10">10º Período</option>
-          </select>
-        <app-field-error errorId="periodo-error" [control]="form.get('period')" [messages]="{ required: 'Selecione o período em que você está.' }"></app-field-error>
-      </div>
-
-      <button type="submit" [disabled]="isLoading" [attr.aria-busy]="isLoading">{{ isLoading ? 'Enviando...' : 'Quero ser avisado' }}</button>
-    </form>
+        Acredito que a tecnologia oferece oportunidades
+        incríveis de transformar ideias em realidade,
+        e quero continuar descobrindo tudo o que
+        posso construir por meio dela.
+      </p>
     </div>
-  </div>
+
+    <!-- UM POUCO SOBRE MIM -->
+    <div class="form-wrapper">
+      <div class="form-card">
+
+        <div class="text">
+          <h2>UM POUCO SOBRE MIM</h2>
+        </div>
+
+        <div class="form-group">
+          <h3>Formação acadêmica</h3>
+          <p>
+            Bacharelado em Sistemas de Informação
+            na UTFPR — Campus Curitiba.
+          </p>
+        </div>
+
+        <div class="form-group">
+          <h3>Áreas de interesse</h3>
+          <p>
+            Cibersegurança, análise de dados,
+            desenvolvimento web e de software
+            e inteligência artificial (IA).
+          </p>
+        </div>
+
+        <div class="form-group">
+          <h3>Meu objetivo</h3>
+          <p>
+            Evoluir constantemente como pessoa,
+            tanto no aspecto pessoal e social
+            quanto no profissional.
+
+            Quero aprender o máximo que puder,
+            conhecer coisas novas, explorar
+            oportunidades e superar desafios.
+
+            Acima de tudo, desejo construir uma
+            trajetória da qual minha família
+            possa se orgulhar, mostrando que,
+            com dedicação e perseverança,
+            nada é impossível.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
+  <!-- MINHA HISTÓRIA -->
   <section id="aboutUs">
     <div class="aboutUs-content">
       <div class="aboutUs-left">
         <div class="aboutUs-header">
-        <span class="aboutUs-subtitle">SOBRE NÓS</span>
-        <h2 class="aboutUs-title">somos uma empresa júnior que cria soluções digitais enquanto forma profissionais melhores.</h2>
-        <p class="aboutUs-description">Unimos desenvolvimento, design, gestão e cultura de comunidade
-                                     para entregar demandas em sistemas úteis. Nosso foco é
-                                     entregar valor para clientes e criar uma experiência intensa
-                                     de aprendizado para membros.</p>
+
+          <span class="aboutUs-subtitle">
+            MINHA HISTÓRIA
+          </span>
+
+          <h2 class="aboutUs-title">
+            De onde vim, o que me inspira
+            e aonde quero chegar.
+          </h2>
+
+          <div class="aboutUs-description">
+
+            <p>
+              Venho de uma família humilde e sempre
+              estudei em escolas públicas. Durante
+              boa parte da minha vida, ainda não sabia
+              exatamente qual caminho profissional
+              queria seguir, até que tive meus
+              primeiros contatos com a informática.
+            </p>
+
+            <p>
+              Foi durante as aulas de informática
+              no colégio que comecei a descobrir
+              meu interesse pela tecnologia.
+              Tive um professor que sempre me
+              incentivou a continuar nessa área,
+              despertando em mim uma curiosidade
+              que, com o tempo, se transformaria
+              em uma verdadeira paixão.
+            </p>
+
+            <p>
+              Aos 15 anos, junto com alguns colegas,
+              desenvolvi meu primeiro jogo indie.
+              Era um projeto simples, mas que teve
+              um significado enorme para mim.
+
+              Ver algo que construímos do zero
+              ganhar forma foi uma experiência
+              emocionante. Naquele momento,
+              percebi que não queria apenas
+              utilizar a tecnologia: queria
+              aprender a criar com ela.
+            </p>
+
+            <p>
+              Aos 18 anos, comecei a pesquisar
+              cursos superiores que combinassem
+              com meus interesses e objetivos.
+
+              Foi então que encontrei o Bacharelado
+              em Sistemas de Informação da
+              Universidade Tecnológica Federal
+              do Paraná (UTFPR).
+            </p>
+
+            <p>
+              Conquistar minha vaga na universidade
+              foi um dos momentos mais marcantes
+              da minha vida.
+
+              Tornei-me o primeiro da minha família
+              a ingressar em uma universidade,
+              algo que representa não apenas
+              uma conquista pessoal, mas também
+              um motivo de orgulho e gratidão
+              por toda a minha trajetória.
+            </p>
+
+            <p>
+              Hoje, continuo construindo meu caminho
+              na UTFPR, aprendendo com meus erros,
+              enfrentando desafios e buscando
+              evoluir a cada experiência.
+
+              Sei que ainda tenho muito a aprender
+              e conquistar, mas carrego comigo
+              a vontade de crescer como pessoa
+              e profissional, realizar meus sonhos
+              e, acima de tudo, dar orgulho
+              à minha família.
+            </p>
+
+            <p>
+              <strong>
+                Minha história ainda está sendo
+                escrita, e cada passo faz parte
+                da pessoa que desejo me tornar.
+              </strong>
+            </p>
+
+          </div>
+
         </div>
       </div>
     </div>
   </section>
 
+  <!-- COISAS QUE FAZEM PARTE DE MIM -->
   <section id="review-cards">
+
     <div class="review-header">
-      <span class="review-subtitle">QUEM PASSOU POR AQUI</span>
-      <h2 class="review-title">review de membros antigos</h2>
+      <span class="review-subtitle">
+        ALÉM DA TECNOLOGIA
+      </span>
+
+      <h2 class="review-title">
+        Coisas que fazem parte de quem eu sou
+      </h2>
     </div>
-    <div class="review-grid" #reviewGrid tabindex="0" role="region" aria-label="Depoimentos de ex-membros">
+
+    <div class="review-grid">
+
+      <!-- CARD 1: LEITURA -->
       <div class="review-card">
-        <p class="review-text">“Participar da Hi Tech foi uma experiência transformadora. Desde o primeiro ano da faculdade estando na EJ, tive contato com empresas e desafios reais, desenvolvendo habilidades em negócios, vendas, tecnologia, comunicação e liderança. Além do crescimento profissional, essa experiência me proporcionou grandes amizades e amadurecimento que levo comigo até hoje.” </p>
+        <p class="review-text">
+          Gosto de ler, descobrir novas histórias,
+          ampliar meus conhecimentos e explorar
+          diferentes perspectivas.
+        </p>
+
         <div class="author-info">
-          <span class="author-name">Cecília Moreira</span>
-          <span class="author-role">Ex-Gerente de Negócios</span>
+          <span class="author-name">Leitura</span>
+          <span class="author-role">
+            Histórias e conhecimento
+          </span>
         </div>
-        <img class="review-enter" src="assets/enter-sobreposto.svg" alt="" aria-hidden="true" loading="lazy" />
       </div>
+
+      <!-- CARD 2: MÚSICA -->
       <div class="review-card">
-        <p class="review-text">“Mesmo já tendo experiências profissionais de desenvolvimento antes da Hi Tech, ainda pude aprender muito sobre desenvolvimento profissional, bem como poder passar por posições de gestão de pessoas e projetos reais, me permitindo desenvolver frentes que no mercado sênior desenvolveria apenas depois de muitos anos de carreira.” </p>
+        <p class="review-text">
+          Ouvir música e tocar violão são formas
+          de relaxar, expressar minha criatividade
+          e aproveitar meu tempo livre.
+        </p>
+
         <div class="author-info">
-          <span class="author-name">Lucas Orlikoski</span>
-          <span class="author-role">Ex-Presidente</span>
+          <span class="author-name">
+            Música e violão
+          </span>
+          <span class="author-role">
+            Criatividade e expressão
+          </span>
         </div>
-        <img class="review-enter" src="assets/enter-sobreposto.svg" alt="" aria-hidden="true" loading="lazy" />
       </div>
+
+      <!-- CARD 3: ANIMES E SÉRIES -->
       <div class="review-card">
-        <p class="review-text">“A Hi Tech me permitiu desenvolver habilidades que eu não teria a chance de explorar em outros lugares. Além de atuar com as mãos na massa em projetos, cresci como pessoa, como integrante de uma equipe e como líder de um time que sabe ir longe!” </p>
+        <p class="review-text">
+          Gosto de acompanhar animes e séries,
+          conhecer novas histórias e mergulhar
+          em diferentes universos.
+        </p>
+
         <div class="author-info">
-          <span class="author-name">Ana Roviero</span>
-          <span class="author-role">Ex-Gerente de Marketing</span>
+          <span class="author-name">
+            Animes e séries
+          </span>
+          <span class="author-role">
+            Entretenimento e histórias
+          </span>
         </div>
-        <img class="review-enter" src="assets/enter-sobreposto.svg" alt="" aria-hidden="true" loading="lazy" />
       </div>
+
+      <!-- CARD 4: PROGRAMAÇÃO -->
       <div class="review-card">
-        <p class="review-text">“A Hi Tech foi onde aprendi, na prática, a transformar estratégia em resultado. Como cofundador e vice-presidente, pude contribuir com a construção da empresa, atuar com qualidade de software e desenvolvimento backend, além de desenvolver uma visão muito mais completa sobre tecnologia, liderança e gestão.” </p>
+        <p class="review-text">
+          Gosto de estudar programação,
+          explorar tecnologias e aprender
+          novas maneiras de desenvolver
+          minhas ideias.
+        </p>
+
         <div class="author-info">
-          <span class="author-name">Saulo Peretto</span>
-          <span class="author-role">Ex-Vice-Presidente</span>
+          <span class="author-name">
+            Programação
+          </span>
+          <span class="author-role">
+            Tecnologia e aprendizado
+          </span>
         </div>
-        <img class="review-enter" src="assets/enter-sobreposto.svg" alt="" aria-hidden="true" loading="lazy" />
       </div>
+
+      <!-- CARD 5: IDIOMAS -->
+      <div class="review-card">
+        <p class="review-text">
+          Tenho interesse em aprender línguas
+          estrangeiras, especialmente inglês
+          e francês, para conhecer novas culturas
+          e ampliar meus horizontes.
+        </p>
+
+        <div class="author-info">
+          <span class="author-name">
+            Idiomas
+          </span>
+          <span class="author-role">
+            Inglês e francês
+          </span>
+        </div>
+      </div>
+
+      <!-- CARD 6: FAMÍLIA E PASSEIOS -->
+      <div class="review-card">
+        <p class="review-text">
+          Valorizo os momentos com minha família
+          e gosto de passear, conhecer lugares
+          novos e criar boas lembranças.
+        </p>
+
+        <div class="author-info">
+          <span class="author-name">
+            Família e passeios
+          </span>
+          <span class="author-role">
+            Momentos e novas experiências
+          </span>
+        </div>
+      </div>
+
     </div>
   </section>
-
-  <section class="events-section">
-  <div class="events-header">
-    <span class="events-subtitle">EVENTOS</span>
-    <h2 class="events-title">FOTOS DE EVENTOS</h2>
-  </div>
-
-  <div class="carousel-wrapper">
-    <button class="carousel-btn prev-btn" (click)="scrollCarousel(-1)" aria-label="Anterior">
-      &#10094;
-    </button>
-      <div class="carousel-container" #carousel (touchstart)="pauseAutoplay()">
-      <div class="event-card" *ngFor="let photo of eventPhotos">
-        <img [src]="photo.url" [alt]="photo.title" loading="lazy" decoding="async" />
-        <div class="event-card-caption" *ngIf="photo.title">
-          <span>{{ photo.title }}</span>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-btn next-btn" (click)="scrollCarousel(1)" aria-label="Próximo">
-      &#10095;
-    </button>
-  </div>
-</section>
 
 </article>

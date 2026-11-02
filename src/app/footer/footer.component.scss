@@ -1,112 +1,186 @@
+
 @import "colors.scss";
 
-/* Mesma coluna das paginas (ate 1760px) e margem lateral que encolhe nas
-   telas menores; ver breakpoints no fim */
+/* =====================================================
+   RODAPÉ - PORTFÓLIO JOÃO PAULO
+   ===================================================== */
+
 footer {
   --gutter: max(40px, calc((100% - 1760px) / 2));
+
   width: 100%;
   box-sizing: border-box;
-  /* um tom abaixo do azul das faixas: na pagina de contato o rodape vem logo
-     depois de uma faixa azul e nao pode se fundir com ela */
+
   background-color: #061a36;
   color: #dfe8f3;
+
   padding: 56px var(--gutter) 0;
 
+  /* QUATRO COLUNAS */
   .footer-container {
     display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
-    gap: 48px;
+
+    grid-template-columns:
+      minmax(0, 1.4fr)
+      minmax(0, 0.8fr)
+      minmax(0, 1.1fr)
+      minmax(0, 0.9fr);
+
+    gap: 32px;
     padding-bottom: 36px;
   }
 
+  /* IDENTIDADE */
   .footer-brand {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
+    min-width: 0;
   }
 
   .footer-logo {
     width: auto;
     height: 72px;
+    max-width: 100%;
   }
 
   .footer-tagline {
     margin: 0;
     max-width: 34ch;
+
     font-family: "Roboto Mono", monospace;
     font-size: 15px;
     line-height: 1.65;
+
     color: #dfe8f3;
   }
 
+  /* TÍTULOS */
   .footer-heading {
     margin: 0 0 16px;
+
     font-family: "Rubik Mono One", sans-serif;
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 0.04em;
     text-transform: uppercase;
+
     color: $color-tertiary;
+  }
+
+  /* COLUNAS */
+  .footer-col {
+    min-width: 0;
   }
 
   .footer-col ul {
     list-style: none;
     margin: 0;
     padding: 0;
+
     display: flex;
     flex-direction: column;
     gap: 0;
   }
 
+  .footer-col li {
+    min-width: 0;
+  }
+
+  /* LINKS */
   .footer-col a {
     display: inline-flex;
     align-items: center;
     gap: 10px;
+
     min-height: 40px;
+    max-width: 100%;
+
     font-family: "Roboto Mono", monospace;
     font-size: 15px;
+
     color: #ffffff;
     text-decoration: underline;
     text-decoration-color: transparent;
     text-decoration-thickness: 2px;
     text-underline-offset: 6px;
-    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+
+    overflow-wrap: anywhere;
+
+    transition:
+      color 0.2s ease,
+      text-decoration-color 0.2s ease;
 
     &:hover {
       color: $color-quaternary;
       text-decoration-color: $color-quaternary;
     }
+
+    &:focus-visible {
+      outline: 2px solid $color-quaternary;
+      outline-offset: 4px;
+    }
   }
 
+  /* INFORMAÇÕES SEM LINK */
+  .footer-col span {
+    display: inline-block;
+
+    padding: 10px 0;
+
+    font-family: "Roboto Mono", monospace;
+    font-size: 15px;
+    line-height: 1.5;
+
+    color: #dfe8f3;
+  }
+
+  /* ÍCONES SOCIAIS */
   .social-icon {
     height: 20px;
     width: auto;
-    /* os SVGs sao azul-marinho (feitos para fundo claro); aqui ficam brancos */
     filter: brightness(0) invert(1);
   }
 
+  /* PARTE INFERIOR */
   .footer-bottom {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
     gap: 8px 24px;
-    /* folga a direita para o botao flutuante do WhatsApp nao cobrir o texto */
+
     padding: 20px 80px 20px 0;
+
     border-top: 1px solid rgba(255, 255, 255, 0.16);
 
     p {
       margin: 0;
+
       font-family: "Roboto Mono", monospace;
       font-size: 13px;
+
       color: #b9c8db;
     }
   }
 }
 
 /* =====================================================
-   RESPONSIVIDADE - Footer
+   RESPONSIVIDADE - NOTEBOOKS E TABLETS
    ===================================================== */
+
+@media (max-width: 1200px) {
+  footer {
+    .footer-container {
+      grid-template-columns:
+        minmax(0, 1.2fr)
+        minmax(0, 1fr);
+
+      gap: 36px 32px;
+    }
+  }
+}
 
 @media (max-width: 1024px) {
   footer {
@@ -114,13 +188,20 @@ footer {
   }
 }
 
+/* =====================================================
+   RESPONSIVIDADE - TABLETS
+   ===================================================== */
+
 @media (max-width: 768px) {
   footer {
     --gutter: 20px;
     padding-top: 40px;
 
     .footer-container {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
       gap: 32px 24px;
       padding-bottom: 32px;
     }
@@ -133,12 +214,15 @@ footer {
       height: 60px;
     }
 
-    /* o botao flutuante do WhatsApp nao cobre o conteudo do rodape */
     .footer-bottom {
       padding: 20px 0 84px;
     }
   }
 }
+
+/* =====================================================
+   RESPONSIVIDADE - CELULARES
+   ===================================================== */
 
 @media (max-width: 480px) {
   footer {
@@ -146,6 +230,19 @@ footer {
 
     .footer-container {
       grid-template-columns: minmax(0, 1fr);
+      gap: 28px;
+    }
+
+    .footer-brand {
+      grid-column: auto;
+    }
+
+    .footer-heading {
+      margin-bottom: 12px;
+    }
+
+    .footer-col a {
+      min-height: 38px;
     }
   }
 }

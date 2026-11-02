@@ -1,4 +1,14 @@
-import { AfterViewInit, Component, ElementRef, HostBinding, NgZone, OnDestroy, OnInit } from '@angular/core';
+
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  HostBinding,
+  NgZone,
+  OnDestroy,
+  OnInit
+} from '@angular/core';
+
 import { SeoService } from './seo.service';
 import { MotionKit, MotionService } from '@app/shared/motion.service';
 import { animateCards, flipCard } from '@app/shared/card-motion';
@@ -14,7 +24,6 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
   private stopMotion?: () => void;
   private destroyed = false;
 
-  /** com o GSAP no comando, o CSS deixa de animar o giro e o hover sozinho */
   @HostBinding('class.gsap-ready') gsapReady = false;
 
   constructor(
@@ -27,58 +36,96 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
   services = [
     {
       number: '01',
-      title: 'Sites e Sistemas Web',
-      description: 'Construímos e mantemos sites e sistemas web sob medida, modernos, responsivos e com suporte contínuo para acompanhar o crescimento do seu negócio.',
-      icon: ['M2 5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z', 'M8 21h8', 'M12 17v4'],
+      title: 'Programação',
+      description: 'Estou desenvolvendo meus conhecimentos em programação, aprendendo a criar algoritmos, resolver problemas e construir soluções por meio do código.',
+      icon: [
+        'M8 17l-5-5 5-5',
+        'M16 7l5 5-5 5',
+        'M14 4l-4 16'
+      ],
       flipped: false
     },
     {
       number: '02',
-      title: 'Sistemas Legados',
-      description: 'Melhoramos e damos manutenção em sistemas antigos, corrigindo falhas e modernizando o que já existe sem parar a sua operação.',
-      icon: ['M3 12a9 9 0 1 0 3-6.7L3 8', 'M3 3v5h5', 'M12 7v5l4 2'],
+      title: 'Lógica Computacional',
+      description: 'Estudo raciocínio lógico, estruturas de pensamento e fundamentos que ajudam a compreender e resolver problemas computacionais.',
+      icon: [
+        'M12 3v4',
+        'M5.6 5.6l2.8 2.8',
+        'M3 12h4',
+        'M12 17v4',
+        'M17 12h4',
+        'M16 8l3-3',
+        'M9 12h6'
+      ],
       flipped: false
     },
     {
       number: '03',
-      title: 'E-mail, Domínio e Hospedagem',
-      description: 'Configuramos e mantemos e-mail corporativo, domínio e hospedagem, deixando a base digital da sua empresa no ar e monitorada.',
-      icon: ['M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z', 'M22 7l-10 6L2 7'],
+      title: 'Desenvolvimento Web',
+      description: 'Tenho interesse em aprender a desenvolver páginas e aplicações web, explorando HTML, CSS, TypeScript e Angular por meio de projetos práticos.',
+      icon: [
+        'M3 4h18v16H3z',
+        'M3 9h18',
+        'M10 12l-3 3 3 3',
+        'M14 12l3 3-3 3'
+      ],
       flipped: false
     },
     {
       number: '04',
-      title: 'Aplicativos Mobile',
-      description: 'Desenvolvemos e evoluímos aplicativos mobile, do protótipo à publicação, com foco em usabilidade e desempenho.',
-      icon: ['M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z', 'M12 18h.01'],
+      title: 'Sistemas de Informação',
+      description: 'Na graduação, estudo como tecnologia, pessoas, processos e informações se relacionam para apoiar organizações e solucionar problemas.',
+      icon: [
+        'M4 4h16v16H4z',
+        'M4 10h16',
+        'M10 10v10',
+        'M14 14h3',
+        'M14 17h3'
+      ],
       flipped: false
     },
     {
       number: '05',
-      title: 'Coleta e Análise de Dados',
-      description: 'Coletamos, organizamos e analisamos os dados do seu negócio, transformando informação dispersa em decisões embasadas.',
-      icon: ['M3 3v18h18', 'M7 14l4-4 3 3 5-6'],
+      title: 'Matemática e Estatística',
+      description: 'Exploro conceitos matemáticos e estatísticos importantes para desenvolver o raciocínio analítico e compreender informações.',
+      icon: [
+        'M3 3v18h18',
+        'M7 15l4-5 3 3 5-7',
+        'M7 7h.01'
+      ],
       flipped: false
     },
     {
       number: '06',
-      title: 'Sistemas de Autoatendimento',
-      description: 'Criamos sistemas de autoatendimento que reduzem filas e trabalho manual, dando autonomia e agilidade para o seu cliente.',
-      icon: ['M5 3h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z', 'M8 21h8', 'M12 16v5', 'M9 9.5l2 2 4-4'],
+      title: 'Banco de Dados',
+      description: 'Tenho interesse em compreender como os dados são armazenados, organizados e utilizados em sistemas e aplicações.',
+      icon: [
+        'M4 6c0-4 16-4 16 0s-16 4-16 0z',
+        'M4 6v12c0 4 16 4 16 0V6',
+        'M4 12c0 4 16 4 16 0'
+      ],
       flipped: false
     },
     {
       number: '07',
-      title: 'Automações',
-      description: 'Automatizamos tarefas repetitivas com integrações, APIs e bots, reduzindo trabalho manual e ganhando eficiência.',
-      icon: ['M13 2L3 14h9l-1 8 10-12h-9l1-8z'],
+      title: 'Algoritmos',
+      description: 'Busco desenvolver minha capacidade de analisar problemas, organizar etapas e criar soluções lógicas e eficientes.',
+      icon: [
+        'M8 3h8v5H8z',
+        'M8 16h8v5H8z',
+        'M12 8v8',
+        'M9 12l3 3 3-3'
+      ],
       flipped: false
     },
     {
       number: '08',
-      title: 'E-commerce',
-      description: 'Construímos e evoluímos lojas virtuais completas, com catálogo, pagamento e gestão de pedidos integrados.',
-      icon: ['M2 2h2l2.7 12.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6L22 7H5.1', 'M9 21h.01', 'M19 21h.01'],
+      title: 'Projetos e Criatividade',
+      description: 'Gosto de transformar ideias em experiências práticas, experimentar ferramentas e aprender com os desafios de cada projeto.',
+      icon: [
+        'M12 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9z'
+      ],
       flipped: false
     }
   ];
@@ -89,8 +136,15 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
         if (!kit || this.destroyed) {
           return;
         }
+
         this.kit = kit;
-        this.stopMotion = animateCards(kit, this.host.nativeElement, { cards: '.card', icon: '.card-icon' });
+
+        this.stopMotion = animateCards(
+          kit,
+          this.host.nativeElement,
+          { cards: '.card', icon: '.card-icon' }
+        );
+
         this.zone.run(() => (this.gsapReady = true));
       });
     });
@@ -99,10 +153,15 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
   toggle(service: { flipped: boolean }, event: Event): void {
     service.flipped = !service.flipped;
 
-    const card = (event.currentTarget as HTMLElement).closest<HTMLElement>('.card');
+    const card = (event.currentTarget as HTMLElement)
+      .closest<HTMLElement>('.card');
+
     if (this.kit && card) {
       const kit = this.kit;
-      this.zone.runOutsideAngular(() => flipCard(kit, card, service.flipped));
+
+      this.zone.runOutsideAngular(() =>
+        flipCard(kit, card, service.flipped)
+      );
     }
   }
 
@@ -110,18 +169,16 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
     this.seo.setJsonLd(this.jsonLdId, {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      name: 'Serviços da Hi Tech',
+      name: 'Conhecimentos de João Paulo Guilherme Silva',
       itemListElement: this.services.map((service, index) => ({
         '@type': 'ListItem',
         position: index + 1,
         item: {
-          '@type': 'Service',
+          '@type': 'Thing',
           name: service.title,
-          description: service.description,
-          provider: { '@id': 'https://hitech.org.br/#organization' },
-          areaServed: 'BR',
-        },
-      })),
+          description: service.description
+        }
+      }))
     });
   }
 

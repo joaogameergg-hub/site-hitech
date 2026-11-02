@@ -1,101 +1,111 @@
+
 {
   "core": {
     "LogoEmpresa": {
-      "src": "assets/logoNova1.svg",
-      "alt": "Logo da empresa Hi Tech"
+      "src": "assets/logo-joao-paulo.png",
+      "alt": "Logotipo JP - João Paulo"
     }
   },
   "home": {
-    "heroSubtitle": "HI TECH - EMPRESA JÚNIOR",
-    "heroTitle" : "TECNOLOGIA QUE TRANSFORMA IDEIAS EM SISTEMAS REAIS.",
-    "heroDescription" : "Desenvolvemos soluções digitais sob medida para aqueles que querem organizar processos, validar produtos e gerar impacto com tecnologia de verdade.",
-    "btnServicesText": "Conheça nossos serviços",
-    "btnContactText": "Fale com a gente",
+    "heroSubtitle": "ESTUDANTE DE SISTEMAS DE INFORMAÇÃO | UTFPR",
+    "heroTitle": "JOÃO PAULO GUILHERME SILVA",
+    "heroDescription": "A tecnologia é o caminho, a criatividade é o combustível e a diversão faz parte da jornada.",
+    "btnServicesText": "Conheça meus interesses",
+    "btnContactText": "Entre em contato",
     "heroImage": {
-      "src": "assets/img-home-1200.jpg",
-      "srcset": "assets/img-home-800.jpg 800w, assets/img-home-1200.jpg 1200w, assets/img-home-1600.jpg 1600w, assets/img-home-2000.jpg 2000w",
-      "sizes": "(max-width: 900px) calc(100vw - 76px), (max-width: 1840px) 64vw, 1180px",
-      "alt": "Equipe Hi Tech reunida segurando a bandeira da empresa",
-      "caption": ">> Times que constroem o futuro"
+      "src": "assets/portfolio-tech.png",
+      "srcset": "",
+      "sizes": "100vw",
+      "alt": "Monitor e computador exibindo códigos de programação",
+      "caption": ">> Conhecimento, criatividade e novas experiências"
     },
     "features": [
       {
         "icon": "assets/feature-1.svg",
-        "title": "Excelência técnica",
-        "description": "Aplicamos boas práticas para entregar soluções seguras, escaláveis e fáceis de evoluir."
+        "title": "Aprendizado contínuo",
+        "description": "Sempre buscando aprender coisas novas e desenvolver meus conhecimentos."
       },
       {
         "icon": "assets/feature-2.svg",
-        "title": "Pessoas no centro",
-        "description": "Acreditamos em aprendizado, colaboração e protagonismo em todas as etapas do projeto."
+        "title": "Criatividade",
+        "description": "Gosto de explorar ideias, experimentar possibilidades e encontrar soluções."
       },
       {
         "icon": "assets/feature-3.svg",
-        "title": "Impacto real",
-        "description": "Geramos valor para empresas, clientes e comunidade por meio de tecnologia aplicada."
+        "title": "Novas experiências",
+        "description": "Acredito que cada experiência traz oportunidades de crescimento."
       }
     ],
     "about": {
-        "subTitle": "Quem somos",
-        "title": "A Hi Tech conecta talento universitário e mercado para desenvolver soluções digitais de impacto.",
-        "description":"Somos uma empresa júnior de tecnologia formada por estudantes que vivem projetos reais desde o primeiro contato com o cliente até a entrega final. Nosso trabalho combina método, comunicação e energia jovem para resolver problemas com clareza.",
-        "linkText": "Conheça a empresa",
-        "activityIcon" : "assets/hitech-logo-horizontal.png",
-        "activity":["Atuação prática em desenvolvimento, design e gestão.", "Projetos pensados para resolver dores reais do cliente.","Formação de profissionais preparados para o mercado."],
-        "actingTitle" : "Nossa atuação",
-        "acting" : [
-          { "value": "+10" ,
-            "description": "projetos entregues" },
-          { "value": "+10" ,
-            "description": "membros formados" },
-          { "value": "8" ,
-            "description": "frentes de serviço" }
-        ]
-      },
-    "Services": {
-      "list": [
+      "subTitle": "Um pouco sobre mim",
+      "title": "Tecnologia, criatividade e experiências fazem parte da minha trajetória.",
+      "description": "Sou João Paulo Guilherme Silva, estudante de Bacharelado em Sistemas de Informação na UTFPR, Campus Curitiba. Sou uma pessoa curiosa, criativa e que gosta de aprender coisas novas. Tenho interesse pelo universo da tecnologia, desenvolvimento de sistemas e inovação. Gosto de explorar ideias, enfrentar desafios e descobrir diferentes maneiras de transformar problemas em soluções.",
+      "linkText": "Conheça meus interesses",
+      "activityIcon": "assets/logo-joao-paulo.png",
+      "activity": [
+        "Estudante de Sistemas de Informação na UTFPR.",
+        "Interesse em tecnologia, desenvolvimento e inovação.",
+        "Aprendizado contínuo e busca por novas experiências."
+      ],
+      "actingTitle": "Minha jornada",
+      "acting": [
+        {
+          "value": "UTFPR",
+          "description": "Formação acadêmica"
+        },
+        {
+          "value": "TI",
+          "description": "Área de interesse"
+        },
+        {
+          "value": "Sempre",
+          "description": "Aprendendo coisas novas"
+        }
       ]
     },
+    "Services": {
+      "list": []
+    },
     "Costumers": {
-      "sectionTitle": "Clientes",
+      "sectionTitle": "Meus projetos",
       "list": []
     },
     "Partners": {
-      "sectionTitle": "Parceiros",
+      "sectionTitle": "Conhecimentos e ferramentas",
       "list": []
     }
   },
   "about": {
-    "title": "Sobre Nós",
-    "description": "Saiba mais sobre nós nesta página.",
-    "sectionTitle": "Título da Seção Sobre",
-    "sectionContent": "Conteúdo da seção sobre."
+    "title": "Além do código",
+    "description": "Conheça um pouco mais sobre meus interesses, hobbies e o que faz parte da minha vida.",
+    "sectionTitle": "O que gosto de fazer",
+    "sectionContent": "Acredito que a vida também é feita de experiências, descobertas e momentos especiais."
   },
   "footer": {
     "RedesSociais": [
       {
-        "nome": "LinkedIn",
-        "url": "https://www.linkedin.com/company/hïtech/",
-        "icon": "assets/linkedinNovo.svg"
+        "nome": "Instagram",
+        "url": "https://www.instagram.com/joao_httpsdx/",
+        "icon": "assets/instagramNovo.svg"
       },
       {
-        "nome": "Instagram",
-        "url": "https://www.instagram.com/hitech.ej/",
-        "icon": "assets/instagramNovo.svg"
+        "nome": "WhatsApp",
+        "url": "https://wa.me/5541998348653",
+        "icon": "assets/whatsappLogo.svg"
       }
     ],
-    "title": "Fale Conosco",
-    "description": "Entre em contato conosco.",
-    "email": "Email: contato@hitech.org.br",
-    "telefone": "Telefone: (41) 99850-5198",
-    "divTitle1": "Hi Tech",
-    "endereco": "Sete de Setembro, 3165, Rebouças, Curitiba - Paraná, CEP 80230-901",
-    "cnpj": "CNPJ: 58.322.883/0001-36",
-    "footerBottom": "Hi Tech. Todos os direitos reservados."
+    "title": "Vamos conversar?",
+    "description": "Entre em contato para trocar ideias e compartilhar experiências.",
+    "email": "joaopaulogsilva06@gmail.com",
+    "telefone": "(41) 99834-8653",
+    "divTitle1": "João Paulo",
+    "endereco": "Curitiba - Paraná",
+    "cnpj": "",
+    "footerBottom": "João Paulo Guilherme Silva. Todos os direitos reservados."
   },
   "whatsapp": {
-    "whatsappNumberLink": "https://wa.me/5541984088811",
-    "whatsappText": "Entre em contato",
+    "whatsappNumberLink": "https://wa.me/5541998348653",
+    "whatsappText": "Fale comigo pelo WhatsApp",
     "whatsappLogoPath": "assets/whatsappLogo.svg"
   }
 }

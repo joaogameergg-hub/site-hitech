@@ -28,12 +28,8 @@
             "index": "src/index.html",
             "browser": "src/main.ts",
             "server": "src/main.server.ts",
-            "prerender": {
-              "routesFile": "src/prerender-routes.txt"
-            },
-            "ssr": {
-              "entry": "server.ts"
-            },
+            "prerender": false,
+            "ssr": false,
             "polyfills": [
               "zone.js"
             ],

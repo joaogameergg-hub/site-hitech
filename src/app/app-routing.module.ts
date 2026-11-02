@@ -1,5 +1,7 @@
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ServicesComponent } from './services/services.component';
@@ -14,23 +16,25 @@ const routes: Routes = [
     component: HomeComponent,
     data: {
       seo: {
-        title: 'Empresa Júnior de Tecnologia e Soluções Digitais',
+        title: 'João Paulo | Meu Portfólio',
         description:
-          'A Hi Tech cria sites, sistemas web, aplicativos mobile e automações. Tire seu projeto do papel com uma empresa júnior de tecnologia.',
+          'Portfólio pessoal de João Paulo Guilherme Silva, estudante de Sistemas de Informação na UTFPR, Campus Curitiba.',
       },
     },
   },
-  // Endereco antigo da home: o nginx responde 301 para /, isto cobre a navegacao
-  // dentro do app (links salvos, ng serve).
-  { path: 'home', redirectTo: '', pathMatch: 'full' },
+  {
+    path: 'home',
+    redirectTo: '',
+    pathMatch: 'full',
+  },
   {
     path: 'about',
     component: AboutComponent,
     data: {
       seo: {
-        title: 'Sobre Nós e Processo Seletivo',
+        title: 'Sobre Mim | João Paulo',
         description:
-          'Somos uma empresa júnior que cria soluções digitais enquanto forma profissionais melhores. Conheça a Hi Tech e faça parte do time.',
+          'Conheça minha trajetória acadêmica, meus interesses, hobbies e experiências pessoais.',
       },
     },
   },
@@ -39,9 +43,9 @@ const routes: Routes = [
     component: ServicesComponent,
     data: {
       seo: {
-        title: 'Serviços: Sites, Sistemas Web e Automações',
+        title: 'Conhecimentos | João Paulo',
         description:
-          'Sites e sistemas web, sistemas legados, apps mobile, e-commerce, automações, análise de dados, autoatendimento e configuração de e-mail, domínio e hospedagem.',
+          'Conheça meus estudos, conhecimentos e interesses em programação, tecnologia e Sistemas de Informação.',
       },
     },
   },
@@ -50,37 +54,33 @@ const routes: Routes = [
     component: ContactComponent,
     data: {
       seo: {
-        title: 'Contato e Briefing',
+        title: 'Contato | João Paulo',
         description:
-          'Envie um briefing para a Hi Tech. Conte o que sua empresa precisa e proporemos um caminho de desenvolvimento.',
+          'Entre em contato para trocar ideias sobre tecnologia, aprendizado, projetos e novas oportunidades.',
       },
     },
   },
   {
-    // Pagina de links (estilo Linktree): fora do menu, do rodape e do sitemap,
-    // noindex, e sem o cabecalho/rodape do site (standalone). So se chega a
-    // ela pelo endereco. Precisa estar em prerender-routes.txt: o nginx so
-    // serve rotas pre-renderizadas.
     path: 'links',
     component: LinksComponent,
     data: {
       standalone: true,
       seo: {
-        title: 'Links',
-        description: 'Instagram, LinkedIn e site da Hi Tech.',
+        title: 'Meus Links | João Paulo',
+        description:
+          'Conheça meus links e redes sociais.',
         noindex: true,
       },
     },
   },
   {
-    // Qualquer URL que nao casou com as rotas acima. noindex porque o nginx
-    // serve esta pagina no lugar do 404 e ela nao deve entrar no Google.
     path: '**',
     component: NotFoundComponent,
     data: {
       seo: {
-        title: 'Página não encontrada',
-        description: 'A página que você procura não existe ou foi movida.',
+        title: 'Página não encontrada | João Paulo',
+        description:
+          'A página que você procura não existe ou foi movida.',
         noindex: true,
       },
     },
@@ -88,7 +88,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled', useHash: false })],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, {
+      anchorScrolling: 'enabled',
+      scrollPositionRestoration: 'enabled',
+      useHash: false,
+    }),
+  ],
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -1,24 +1,49 @@
-<a class="skip-link" href="#conteudo" (click)="skipToContent($event)">Pular para o conteúdo</a>
+
+<a class="skip-link" href="#conteudo" (click)="skipToContent($event)">
+  Pular para o conteúdo
+</a>
 
 <header>
-  <!-- Barra Superior -->
+  <!-- Barra superior -->
   <div class="top-bar">
-    <span>Universidade Tecnológica Federal do Paraná</span>
-    <!-- Substituído o @ por &#64; para não conflitar com o Angular -->
-    <span>contato&#64;hitech.org.br</span>
+    <span>UTFPR | Campus Curitiba</span>
+    <span>João Paulo Guilherme Silva</span>
   </div>
 
-  <!-- Navegação Principal -->
+  <!-- Navegação principal -->
   <nav>
-    <a class="logo" routerLink="/" aria-label="Hi Tech, página inicial">
-      <img [src]="templateText.LogoEmpresa.src" alt="" />
+    <a class="logo" routerLink="/" aria-label="João Paulo, página inicial">
+      <img
+        [src]="templateText.LogoEmpresa.src"
+        alt="Logotipo do portfólio de João Paulo"
+      />
     </a>
-    
+
     <ul class="nav-links">
-      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
-      <li><a routerLink="/about" routerLinkActive="active">Sobre Nós</a></li>
-      <li><a routerLink="/services" routerLinkActive="active">Serviços</a></li>
-      <li><a routerLink="/contact" routerLinkActive="active">Contato</a></li>
+      <li>
+        <a routerLink="/" routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }">
+          Início
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/about" routerLinkActive="active">
+          Sobre Mim
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/services" routerLinkActive="active">
+          Conhecimentos
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/contact" routerLinkActive="active">
+          Contato
+        </a>
+      </li>
     </ul>
   </nav>
 </header>

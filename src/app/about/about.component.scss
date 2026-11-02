@@ -1,751 +1,169 @@
 @import "colors.scss";
 
+:host { display: block; }
+
 #about {
-  margin: auto;
-  /* calha lateral das secoes; o bloco de eventos sangra ate a borda, mas o
-     conteudo de todos segue a mesma coluna (largura maxima 1760px) */
-  --gutter: 40px;
+  --gutter: clamp(16px, 4vw, 56px);
   box-sizing: border-box;
-  /* Sem padding inferior: a .events-section é o último elemento e seu gradiente
-     precisa encostar direto no rodapé, sem faixa bege de fundo no meio. */
-  padding: 56px 0 0;
-  background-color: $color-secondary;
+  width: 100%;
   overflow-x: clip;
+  background: $color-secondary;
+  color: #12264b;
+  padding-top: clamp(36px, 5vw, 76px);
 }
 
-.about-content,
-#aboutUs,
-#review-cards,
-.events-section {
-  padding-inline: max(var(--gutter), calc((100% - 1760px) / 2));
+#about *, #about *::before, #about *::after { box-sizing: border-box; }
+
+.about-content, #aboutUs, #review-cards, .events-section {
+  padding-inline: max(var(--gutter), calc((100% - 1400px) / 2));
 }
 
 .about-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 60px;
-
-    /* Empilha de forma previsível em telas médias/pequenas,
-       evitando quebras irregulares do flex-wrap que deixavam espaços vazios. */
-    @media (max-width: 1024px) {
-      flex-direction: column;
-      align-items: stretch;
-
-      /* No modo coluna o flex-basis passa a valer como ALTURA. Sem este reset,
-         o flex-basis pensado para a largura (490px / 772px) criava um espaço
-         vazio grande entre o título e o formulário. */
-      > .main-title,
-      > .form-wrapper {
-        flex: 0 0 auto;
-      }
-    }
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 84px);
 }
 
-.main-title {
-    /* duas colunas: texto na borda esquerda da pagina, formulario na direita */
-    flex: 1 1 0;
-    max-width: 520px;
-    min-width: 0;
+.main-title { min-width: 0; }
+.main-title .subtitle, .aboutUs-subtitle, .review-subtitle, .events-subtitle {
+  display: block;
+  margin: 0 0 16px;
+  font: 700 13px/1.5 "Roboto Mono", monospace;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #6d42c7;
+}
+.main-title h1 {
+  margin: 0 0 26px;
+  font-family: "Rubik Mono One", sans-serif;
+  font-size: clamp(1.9rem, 3.6vw, 3.7rem);
+  line-height: 1.2;
+  color: #09254d;
+  overflow-wrap: break-word;
+}
+.main-title .description {
+  margin: 0;
+  font: 400 clamp(15px, 1.2vw, 17px)/1.85 "Roboto Mono", monospace;
+  color: #34445d;
+  white-space: pre-line;
 }
 
-.form-wrapper {
-    position: relative;
-    flex: 1 1 0;
-    width: 100%;
-    max-width: 700px;
-    min-width: 0;
-    margin-top: 0;
-}
-
+.form-wrapper { min-width: 0; width: 100%; }
 .form-card {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    min-width: 0;
-
-    padding: 40px;
-
-    background:#FFFFFF;
-    border: 1px solid #000000;
-    border-radius: 8px;
-
-    box-shadow: 11px 12px 0 #4EBBC0;
-    box-sizing: border-box;
-}
-
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #09254D;
-}
-
-input,
-textarea,
-select {
-    padding: 12px 16px;
-    color: #3d3d3d;
-    background-color: #EDEDED;
-    border: 1px solid $color-field-border;
-    border-radius: 8px;
-    font-size: 16px;
-    font-family: "Roboto Mono", monospace;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
-    border-color: $color-action;
-}
-
-button {
-    width: 100%;
-    padding: 12px 24px;
-    border: 1px solid #09254D;
-    border-radius: 8px;
-    background: $color-action;
-    color: white;
-    font-family: "Roboto Mono", monospace;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 5px 4px 0 #09254D;
-}
-
-button:hover {
-    border-color: #0b2545;
-}
-
-select,
-select option {
-    color: #3d3d3d;
-}
-
-.main-title {
-  .subtitle {
-    display: block;
-    margin: 0 0 14px;
-  }
-
-  .description {
-    margin: 0;
-  }
-
-  h1 {
-    margin: 0 0 20px;
-    line-height: 1.15;
-    font-family: "Rubik Mono One", sans-serif;
-    font-size: clamp(2rem, 5vw, 4rem);
-    color: #09254D;
-  }
-}
-
-.subtitle {
-    font-family: "Roboto Mono", sans-serif;
-    font-size: 14px;
-    color: #09254D;
-    font-weight: 600;
-}
-
-.description {
-    font-family: "Roboto Mono", sans-serif;
-    font-size: 16px;
-    line-height: 1.7;
-    color: #554949;
-    font-weight: 400;
-}
-
-.background-shape {
-    position: absolute;
-    z-index: 0;
-    /* Dimensões conforme o Figma (Mask group): 973 x 381,
-       para um card de 772px de largura. */
-    left: 50%;
-    bottom: -70px;
-    transform: translateX(-50%);
-    width: 973px;
-    height: 381px;
-    max-width: none;
-    object-fit: contain;
-    pointer-events: none;
-    user-select: none;
-
-    /* Abaixo desta largura a shape invade o texto do título e
-       prejudica a leitura, então deixa de ser exibida. */
-    @media (max-width: 1200px) {
-      display: none;
-    }
-}
-
-.text {
-    font-family: "Roboto Mono", sans-serif;
-    font-size: 17px;
-    color: #09254D;
-    font-weight: 600;
-}
-
-#aboutUs {
-  position: relative;
-  margin: 72px 0 0;
   width: 100%;
+  padding: clamp(24px, 3vw, 42px);
+  background: #fff;
+  border: 2px solid #14274a;
+  border-radius: 18px;
+  box-shadow: 10px 12px 0 #72c4ee;
+}
+.form-card .text h2 {
+  margin: 0 0 26px;
+  color: #09254d;
+  font: 700 clamp(19px, 2vw, 25px)/1.35 "Roboto Mono", monospace;
+}
+.form-group + .form-group { margin-top: 22px; }
+.form-group h3 {
+  margin: 0 0 7px;
+  color: #5833a4;
+  font: 700 15px/1.5 "Roboto Mono", monospace;
+}
+.form-group p {
+  margin: 0;
+  color: #34445d;
+  font: 400 15px/1.7 "Roboto Mono", monospace;
+}
+
+#aboutUs { margin-top: clamp(76px, 9vw, 132px); }
+.aboutUs-content { width: 100%; }
+.aboutUs-left { max-width: 960px; }
+.aboutUs-title {
+  margin: 0;
+  color: #09254d;
+  font: 400 clamp(1.55rem, 2.8vw, 2.9rem)/1.35 "Rubik Mono One", sans-serif;
+  overflow-wrap: break-word;
+}
+.aboutUs-description {
+  max-width: 780px;
+  margin: 22px 0 0;
+  color: #34445d;
+  font: 400 16px/1.9 "Roboto Mono", monospace;
+  white-space: pre-line;
+}
+
+#review-cards { margin-top: clamp(76px, 9vw, 124px); }
+.review-header { max-width: 900px; margin-bottom: 34px; }
+.review-title {
+  margin: 0;
+  color: #09254d;
+  font: 400 clamp(1.45rem, 2.6vw, 2.7rem)/1.35 "Rubik Mono One", sans-serif;
+}
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 36px);
+}
+.review-card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  text-align: left;
-  gap: 30px;
-  box-sizing: border-box;
-
-  .aboutUs-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    gap: 40px;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  .aboutUs-left {
-    flex: 1;
-    max-width: 760px;
-    align-items: flex-start;
-    text-align: left;
-  }
-
-  .aboutUs-title{
-    font-family: "Rubik Mono One", sans-serif;
-    font-size: clamp(2rem, 2.4vw + 1rem, 3rem);
-    line-height: 1.2;
-    margin: 0;
-    color: $color-support;
-  }
-
-  .aboutUs-subtitle {
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    display: block;
-    color: $color-quinary;
-  }
-
-  .aboutUs-description{
-    margin-top: 20px;
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: #554949;
-  }
+  min-height: 225px;
+  padding: 30px;
+  border: 2px solid #17284b;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 7px 9px 0 #75c6ec;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-
-
-/* Cores da marca aplicadas em sequência nos cards de review */
-$review-accents: $color-tertiary, $color-quaternary, $color-primary, $color-quinary;
-
-#review-cards {
-  position: relative;
-  display: block;
-  width: 100%;
-  margin: 72px 0 0;
-  box-sizing: border-box;
-  text-align: left;
-
-  .review-header {
-    position: relative;
-    z-index: 1;
-    max-width: 820px;
-    margin-bottom: 12px;
-  }
-
-  .review-subtitle {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: $color-quinary;
-    margin-bottom: 16px;
-    text-transform: uppercase;
-  }
-
-  .review-title {
-    font-size: clamp(1.6rem, 3vw, 2.8rem);
-    font-weight: 700;
-    color: $color-support;
-    margin: 0;
-    line-height: 1.2;
-    text-align: left;
-    font-family: 'Rubik Mono One', sans-serif;
-  }
-
-  .review-grid {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 1fr;
-    gap: 48px;
-
-    @media (max-width: 620px) {
-      grid-template-columns: 1fr;
-      gap: 32px;
-    }
-  }
-
-  .review-card {
-    position: relative;
-    overflow: hidden;
-    background-color: $color-sextenary;
-    border: 2px solid $color-support;
-    border-radius: 12px;
-    padding: 30px 26px 24px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    min-height: 260px;
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
-
-    /* Faixa superior colorida */
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 8px;
-    }
-
-    /* no toque o :hover fica grudado no ultimo card tocado; la quem sobe e o
-       card em destaque (.is-active, marcado pelo componente) */
-    @media (hover: hover) {
-      &:hover {
-        transform: translateY(-6px);
-      }
-    }
-
-    @media (max-width: 768px) {
-      &.is-active {
-        transform: translateY(-6px);
-      }
-    }
-
-    @media (max-width: 480px) {
-      padding: 24px 18px 20px;
-    }
-  }
-
-  /* Símbolo "enter" da marca como marca d'água no canto do card */
-  .review-enter {
-    position: absolute;
-    right: 16px;
-    bottom: 16px;
-    width: 44px;
-    height: auto;
-    opacity: 0.12;
-    pointer-events: none;
-    user-select: none;
-  }
-
-  /* Cada card recebe uma cor diferente da paleta */
-  @each $accent in $review-accents {
-    $i: index($review-accents, $accent);
-
-    .review-card:nth-child(#{$i}) {
-      box-shadow: 8px 10px 0 $accent;
-
-      &::before {
-        background: $accent;
-      }
-
-      @media (hover: hover) {
-        &:hover {
-          box-shadow: 12px 14px 0 $accent;
-        }
-      }
-
-      @media (max-width: 768px) {
-        &.is-active {
-          box-shadow: 12px 14px 0 $accent;
-        }
-      }
-
-      @media (max-width: 480px) {
-        box-shadow: 5px 6px 0 $accent;
-
-        &.is-active {
-          box-shadow: 8px 10px 0 $accent;
-        }
-      }
-    }
-  }
-
-  .review-text {
-    margin: 0 0 18px;
-    font-size: 14px;
-    line-height: 1.7;
-    color: $color-sectenary;
-    font-weight: 400;
-    font-family: 'Roboto Mono', monospace;
-  }
-
-  .author-info {
-    margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding-top: 18px;
-    border-top: 1px dashed rgba($color-support, 0.25);
-  }
-
-  .author-name {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 14px;
-    font-weight: 600;
-    color: $color-quinary;
-  }
-
-  .author-role {
-    color: $color-support;
-    font-weight: bold;
-    font-size: 13px;
-  }
+.review-card:nth-child(2) { box-shadow: 7px 9px 0 #b6a2ef; }
+.review-card:nth-child(3) { box-shadow: 7px 9px 0 #9fdfd4; }
+.review-card:nth-child(4) { box-shadow: 7px 9px 0 #e3b9ef; }
+@media (hover: hover) {
+  .review-card:hover { transform: translateY(-5px); }
 }
+.review-text {
+  margin: 0 0 22px;
+  color: #34445d;
+  font: 400 15px/1.8 "Roboto Mono", monospace;
+}
+.author-info {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid #dce4f0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.author-name { color: #5833a4; font: 700 15px/1.5 "Roboto Mono", monospace; }
+.author-role { color: #52617b; font: 400 13px/1.5 "Roboto Mono", monospace; }
 
 .events-section {
-  /* sangra ate a borda da janela, mas o conteudo segue a mesma coluna do resto */
-  padding-block: 72px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  box-sizing: border-box;
-  width: 100%;
-  position: relative;
-  margin-top: 96px;
-
-  background: linear-gradient(180deg, #bfe2f7 0%, #ffffff 100%);
-
-  .events-header {
-    margin-bottom: 48px;
-
-    .events-subtitle {
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: #6200ee;
-      text-transform: uppercase;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .events-title {
-      font-family: "Rubik Mono One", sans-serif;
-      font-size: clamp(1.6rem, 4vw, 2.8rem);
-      color: #0b2545;
-      margin: 0;
-      letter-spacing: 1px;
-    }
-  }
-
-  .carousel-wrapper {
-    position: relative;
-    width: 100%;
-    display: flex;
-    align-items: center;
-
-    .carousel-container {
-      display: flex;
-      gap: 24px;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      /* o arrasto (e as setas) param sempre em cima de uma foto, nunca no
-         meio de duas */
-      scroll-snap-type: x mandatory;
-      padding: 10px 4px 20px 4px;
-      width: 100%;
-
-      scrollbar-width: none;
-      &::-webkit-scrollbar {
-        display: none;
-      }
-
-      .event-card {
-        flex: 0 0 min(680px, 85vw, 100%);
-        min-width: 0;
-        scroll-snap-align: start;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-
-        background-color: transparent;
-        border: none;
-        box-shadow: none;
-
-        img {
-          width: 100%;
-          /* proporcao fixa em vez de max-height: com height auto a altura do
-             card vinha das dimensoes do arquivo, entao foto 16:9 ficava mais
-             baixa que foto 3:2 e os cards saiam desalinhados. 3:2 e a
-             proporcao da maioria das fotos, entao e a que menos corta */
-          aspect-ratio: 3 / 2;
-          height: auto;
-          object-fit: cover;
-          border: 2.5px solid #000000;
-          border-radius: 12px;
-          box-shadow: 4px 4px 0px #000000;
-          transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-          @media (hover: hover) {
-            &:hover {
-              transform: translateY(-4px);
-              box-shadow: 6px 6px 0px #000000;
-            }
-          }
-        }
-
-        @media (max-width: 768px), (hover: none) {
-          &.is-active img {
-            transform: translateY(-4px);
-            box-shadow: 6px 6px 0px #000000;
-          }
-        }
-
-        .event-card-caption {
-          position: relative;
-          width: 100%;
-          box-sizing: border-box;
-
-          background-color: #0b2545;
-          border: 2px solid #000000;
-          border-radius: 6px;
-          padding: 10px 14px;
-          box-shadow: 2px 2px 0px #000000;
-
-          span {
-            font-family: 'Roboto Mono', monospace;
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: bold;
-            display: block;
-            text-transform: uppercase;
-            text-align: center;
-          }
-        }
-      }
-    }
-
-    .carousel-btn {
-      z-index: 10;
-      color: #ffffff;
-      width: 44px;
-      height: 44px;
-      flex-shrink: 0;
-      background-color: #0b2545;
-      border: 2.5px solid #000000;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 2px 2px 0px #000000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.5s ease;
-
-      &:hover {
-        transform: translateY(-5%) scale(1.05);
-        box-shadow: 3px 3px 0px #000000;
-      }
-
-      &:active {
-        transform: translateY(-5%) scale(0.95);
-        box-shadow: 1px 1px 0px #000000;
-      }
-    }
-  }
+  margin-top: clamp(80px, 10vw, 130px);
+  padding-block: clamp(65px, 8vw, 110px);
+  background: linear-gradient(135deg, #d8efff 0%, #e9e3ff 55%, #ffffff 100%);
+}
+.events-header { max-width: 1050px; }
+.events-title {
+  margin: 0 0 25px;
+  color: #09254d;
+  font: 400 clamp(1.5rem, 3vw, 3rem)/1.35 "Rubik Mono One", sans-serif;
+}
+.events-header p {
+  margin: 0;
+  max-width: 820px;
+  color: #34445d;
+  font: 500 clamp(16px, 1.7vw, 20px)/1.8 "Roboto Mono", monospace;
 }
 
-
-/* =====================================================
-   RESPONSIVIDADE - About
-   ===================================================== */
-
-@media (max-width: 1024px) {
-  #about {
-    --gutter: 28px;
-    padding: 48px 0 0;
-  }
-
-  .about-content {
-    gap: 30px;
-  }
-
-  .form-wrapper {
-    margin-top: 40px;
-    max-width: 100%;
-  }
-
-  .form-card {
-    width: 100%;
-    max-width: 100%;
-  }
-
-
-
-  .events-section {
-    margin-top: 72px;
-    padding-block: 48px;
-  }
+@media (max-width: 900px) {
+  .about-content { grid-template-columns: 1fr; }
+  .form-wrapper { max-width: 720px; }
 }
-
-@media (max-width: 768px) {
-  #about {
-    --gutter: 20px;
-    padding: 40px 0 0;
-  }
-
-  /* reviews: em vez de empilhar quatro cards longos, uma fileira que se
-     arrasta de lado. O container sangra ate a borda da tela para o proximo
-     card aparecer cortado (indica que ha mais) e a sombra nao ser recortada */
-  #review-cards .review-grid {
-    display: flex;
-    gap: 16px;
-    margin-inline: calc(var(--gutter) * -1);
-    padding: 12px var(--gutter) 24px;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory;
-    scroll-padding-inline: var(--gutter);
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
-    &:focus-visible {
-      outline: 3px solid $color-primary;
-      outline-offset: -3px;
-    }
-
-    .review-card {
-      flex: 0 0 min(360px, 82vw);
-      height: auto;
-      scroll-snap-align: start;
-    }
-  }
-
-  /* O vao entre o titulo e o formulario vinha de tres regras somadas
-     (gap 30 + margin do wrapper 40 + margin do card 24 = 94px). Aqui as duas
-     margens zeram e o espacamento fica so no gap, num numero unico. */
-  .about-content {
-    gap: 36px;
-  }
-
-  .form-wrapper {
-    margin-top: 0;
-  }
-
-  .form-card {
-    margin-top: 0;
-    padding: 24px;
-    box-shadow: 6px 8px 0 #4EBBC0;
-  }
-
-  #aboutUs {
-    margin-top: 72px;
-
-    .aboutUs-content {
-      flex-direction: column;
-      padding: 0;
-      gap: 24px;
-    }
-
-    .aboutUs-left {
-      max-width: 100%;
-    }
-  }
-
-  .events-section {
-    margin-top: 56px;
-    padding-block: 40px;
-
-    /* no toque o arrasto ja navega, entao as setas so roubariam 88px de
-       largura do carrossel */
-    .carousel-wrapper .carousel-btn {
-      display: none;
-    }
-
-    .carousel-wrapper .carousel-container .event-card {
-      flex: 0 0 min(480px, 80vw);
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  #about {
-    --gutter: 16px;
-    padding: 32px 0 0;
-  }
-
-  .main-title h1 {
-    font-size: clamp(1.6rem, 6vw, 2.5rem);
-  }
-
-  #aboutUs .aboutUs-title {
-    font-size: clamp(1.4rem, 6.4vw, 1.75rem);
-    overflow-wrap: anywhere;
-  }
-
-  .form-card {
-    padding: 20px 16px;
-  }
-
-  .events-section {
-    margin-top: 40px;
-    padding-block: 32px;
-
-    .events-header .events-title {
-      font-size: 1.4rem;
-    }
-
-    .carousel-wrapper {
-      /* as setas ja saem em 768px, nao ha o que redimensionar aqui */
-
-      .carousel-container .event-card {
-        flex: 0 0 min(320px, 85vw);
-      }
-    }
-  }
-
-  #review-cards .review-grid {
-    gap: 16px;
-  }
-
-  #aboutUs {
-    .aboutUs-content {
-      padding: 0;
-    }
-  }
+@media (max-width: 640px) {
+  .review-grid { grid-template-columns: 1fr; gap: 24px; }
+  .review-card { min-height: 0; padding: 24px 20px; }
+  .form-card { box-shadow: 6px 7px 0 #72c4ee; }
+  .main-title h1 { font-size: clamp(1.6rem, 7vw, 2.3rem); }
+  .aboutUs-title, .review-title, .events-title { overflow-wrap: anywhere; }
 }

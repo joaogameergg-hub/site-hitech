@@ -44,3 +44,5 @@ src/environments/env.prod.ts
 
 # Cache local das ferramentas de design (Impeccable)
 .impeccable/
+
+/angular.json.backup

@@ -1,223 +1,441 @@
+
 <div class="scroll-container">
 
-<section id="hero">
-  <div class="hero-content">
-    <div class="hero-left">
-      <div class="hero-header">
-        <span class="hero-subtitle">{{ templateText.heroSubtitle }}</span>
-        <h1 class="typed-text hero-title">{{ templateText.heroTitle}}</h1>
-        <p class="hero-description-fallback">{{ templateText.heroDescription }}</p>
+  <!-- INÍCIO -->
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-header">
+          <span class="hero-subtitle">{{ templateText.heroSubtitle }}</span>
+
+          <h1 class="typed-text hero-title">
+            {{ templateText.heroTitle }}
+          </h1>
+
+          <p class="hero-description-fallback">
+            {{ templateText.heroDescription }}
+          </p>
+        </div>
+
+        <div class="hero-buttons">
+          <a class="btn-primary" href="#services-cards">
+            Conhecimentos
+          </a>
+
+          <a class="btn-secondary" href="#contact">
+            Contato
+          </a>
+        </div>
       </div>
 
-    <div class="hero-buttons">
-      <a class="btn-primary" routerLink="/services">
-        {{ templateText.btnServicesText }}
-      </a>
-      <a class="btn-secondary" routerLink="/contact">
-        {{ templateText.btnContactText }}
-      </a>
-    </div>
-  </div>
+      <div class="hero-right">
+        <div class="team-card-wrapper">
+          <div class="team-card">
+            <div class="image-container">
+              <img
+                [src]="templateText.heroImage.src"
+                [attr.srcset]="templateText.heroImage.srcset"
+                [attr.sizes]="templateText.heroImage.sizes"
+                [alt]="templateText.heroImage.alt"
+                width="1600"
+                height="900"
+                fetchpriority="high"
+                decoding="async" />
+            </div>
 
-  <div class="hero-right">
-      <div class="team-card-wrapper">
-        <div class="team-card">
-          <div class="image-container">
-            <!-- srcset/sizes: o navegador baixa so o tamanho que a tela usa.
-                 width/height refletem a proporcao real (16:9) para reservar
-                 o espaco antes da imagem chegar. -->
-            <img
-              [src]="templateText.heroImage.src"
-              [attr.srcset]="templateText.heroImage.srcset"
-              [attr.sizes]="templateText.heroImage.sizes"
-              [alt]="templateText.heroImage.alt"
-              width="1600"
-              height="900"
-              fetchpriority="high"
-              decoding="async" />
-          </div>
-          <div class="team-caption">
-            <span>{{ templateText.heroImage.caption }}</span>
+            <div class="team-caption">
+              <span>Um pouco da minha jornada</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="values-bar">
-    <div class="value-item" *ngFor="let feature of templateText.features; let i = index">
-      <div class="value-icon-box">
-        <img [src]="feature.icon" [alt]="feature.title" class="value-icon" loading="lazy" decoding="async" />
-      </div>
-      <div class="value-text">
-        <h2 [appTypewriter]="feature.title" [delay]="i * 300" [speed]="75"></h2>
-        <p [appTypewriter]="feature.description" [delay]="i * 300 + 500" [speed]="25"></p>
+    <div class="values-bar">
+      <div
+        class="value-item"
+        *ngFor="let feature of templateText.features; let i = index">
+
+        <div class="value-icon-box">
+          <img
+            [src]="feature.icon"
+            [alt]="feature.title"
+            class="value-icon"
+            loading="lazy"
+            decoding="async" />
+        </div>
+
+        <div class="value-text">
+          <h2
+            [appTypewriter]="feature.title"
+            [delay]="i * 300"
+            [speed]="75">
+          </h2>
+
+          <p
+            [appTypewriter]="feature.description"
+            [delay]="i * 300 + 500"
+            [speed]="25">
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-
   </section>
 
+  <!-- SOBRE MIM -->
   <section id="about">
     <div class="about-content">
       <div class="about-left">
         <div class="about-header">
-        <span class="about-subtitle">{{templateText.about.subTitle }}</span>
-        <!-- h2 e nao h1: o h1 da pagina e o titulo do hero -->
-        <h2 class="typed-text about-title">{{templateText.about.title}}</h2>
-        <p class="about-description">{{templateText.about.description}}</p>
-        <a routerLink="/about" class="about-link">{{templateText.about.linkText}}</a>
+          <span class="about-subtitle">QUEM SOU EU</span>
+
+          <h2 class="typed-text about-title">
+            Muito prazer, sou João!
+          </h2>
+
+          <p class="about-description">
+            Sou estudante de Bacharelado em Sistemas de Informação
+            na UTFPR, Campus Curitiba. Tenho curiosidade pelo
+            universo da tecnologia, gosto de aprender coisas novas
+            e explorar diferentes ideias.
+
+            Acredito que cada experiência é uma oportunidade de
+            evoluir, tanto pessoalmente quanto profissionalmente.
+          </p>
+
+          <a href="#interests" class="about-link">
+            Conheça um pouco mais sobre mim
+          </a>
         </div>
       </div>
+
       <div class="about-right">
         <div class="about-card-wrapper">
           <div class="activity-card">
             <div class="activity-head">
-              <img [src]="templateText.about.activityIcon" alt="Hi Tech" class="activity-icon" width="474" height="105" loading="lazy" decoding="async" />
+              <div class="activity-icon">JP</div>
             </div>
+
             <ul>
-              <li *ngFor="let item of templateText.about.activity">
-                {{ item }}
-              </li>
+              <li>Estudante de Sistemas de Informação</li>
+              <li>UTFPR – Campus Curitiba</li>
+              <li>Interessado em tecnologia e inovação</li>
+              <li>Sempre buscando aprender</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
+
     <div class="acting-bar">
       <div class="acting-content">
-        <h3 class="acting-title">{{templateText.about.actingTitle}}</h3>
+        <h3 class="acting-title">Minha jornada</h3>
+
         <div class="acting-boxes">
-          <div class="acting-item" *ngFor="let item of templateText.about.acting; let i = index">
+
+          <div class="acting-item">
             <div class="acting-box">
               <div class="value-text">
-                <h3 [appTypewriter]="item.value" [delay]="i * 500" [speed]="60"></h3>
-                <p [appTypewriter]="item.description" [delay]="i * 500 + 400" [speed]="20"></p>
+                <h3>UTFPR</h3>
+                <p>Minha trajetória acadêmica</p>
               </div>
             </div>
           </div>
+
+          <div class="acting-item">
+            <div class="acting-box">
+              <div class="value-text">
+                <h3>Tecnologia</h3>
+                <p>Um universo de possibilidades</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acting-item">
+            <div class="acting-box">
+              <div class="value-text">
+                <h3>Aprendizado</h3>
+                <p>Evolução a cada experiência</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </section>
 
+  <!-- CONHECIMENTOS -->
   <section id="services-cards">
     <div class="services-header">
-      <span class="services-subtitle">Nossos Serviços</span>
-      <h2 class="services-title">Soluções digitais para impulsionar seu negócio.</h2>
+      <span class="services-subtitle">
+        MEU UNIVERSO NA TECNOLOGIA
+      </span>
+
+      <h2 class="services-title">
+        Conhecimentos, curiosidades e novas descobertas.
+      </h2>
     </div>
+
     <div class="services-grid">
+
       <div class="service-card reveal-card">
         <div class="service-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 18L22 12L16 6"/>
-            <path d="M8 6L2 12L8 18"/>
-          </svg>
+          &lt;/&gt;
         </div>
-        <h3>DESENVOLVIMENTO WEB</h3>
-        <p>Sites, sistemas web, e-commerce e melhoria de sistemas legados.</p>
-        <a class="service-link" routerLink="/services">Saiba mais<span class="sr-only"> sobre desenvolvimento web</span></a>
+
+        <h3>PROGRAMAÇÃO</h3>
+
+        <p>
+          Explorando a lógica, os algoritmos e o desenvolvimento
+          de soluções por meio do código.
+        </p>
       </div>
+
       <div class="service-card reveal-card">
-        <div class="service-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="6" y="2" width="12" height="20" rx="2"/>
-            <line x1="12" y1="18" x2="12.01" y2="18"/>
-          </svg>
-        </div>
-        <h3>APPS E AUTOATENDIMENTO</h3>
-        <p>Apps mobile e sistemas de autoatendimento para o seu cliente.</p>
-        <a class="service-link" routerLink="/services">Saiba mais<span class="sr-only"> sobre apps e autoatendimento</span></a>
+        <div class="service-icon" aria-hidden="true">⌘</div>
+
+        <h3>SISTEMAS DE INFORMAÇÃO</h3>
+
+        <p>
+          Aprendendo como tecnologia, informação e negócios
+          podem trabalhar juntos.
+        </p>
       </div>
+
       <div class="service-card reveal-card">
-        <div class="service-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="6" y1="20" x2="6" y2="14"/>
-            <line x1="12" y1="20" x2="12" y2="4"/>
-            <line x1="18" y1="20" x2="18" y2="10"/>
-          </svg>
-        </div>
-        <h3>DADOS E AUTOMAÇÕES</h3>
-        <p>Coleta e análise de dados e automação de tarefas repetitivas.</p>
-        <a class="service-link" routerLink="/services">Saiba mais<span class="sr-only"> sobre dados e automações</span></a>
+        <div class="service-icon" aria-hidden="true">✦</div>
+
+        <h3>CRIATIVIDADE</h3>
+
+        <p>
+          Gosto de explorar ideias, pensar em possibilidades
+          e encontrar novas soluções.
+        </p>
       </div>
+
       <div class="service-card reveal-card">
-        <div class="service-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="8" rx="2"/>
-            <rect x="2" y="13" width="20" height="8" rx="2"/>
-            <line x1="6" y1="7" x2="6.01" y2="7"/>
-            <line x1="6" y1="17" x2="6.01" y2="17"/>
-          </svg>
-        </div>
-        <h3>INFRAESTRUTURA DIGITAL</h3>
-        <p>Configuração de e-mail, domínio e hospedagem do seu negócio.</p>
-        <a class="service-link" routerLink="/services">Saiba mais<span class="sr-only"> sobre infraestrutura digital</span></a>
+        <div class="service-icon" aria-hidden="true">↗</div>
+
+        <h3>APRENDIZADO</h3>
+
+        <p>
+          Buscando novos conhecimentos e evoluindo a cada
+          experiência acadêmica e pessoal.
+        </p>
       </div>
+
     </div>
   </section>
 
-  <section id="recruit">
-    <div class="recruit-card">
-      <div class="recruit-text">
-        <h2>Estuda na UTFPR e quer aprender com projetos reais?</h2>
-        <p>Na Hi Tech você desenvolve, desenha e gerencia entregas para clientes de verdade, ao lado de quem já passou por aqui.</p>
+  <!-- O QUE GOSTO DE FAZER -->
+  <section id="interests">
+    <div class="services-header">
+      <span class="services-subtitle">
+        UM POUCO SOBRE MIM
+      </span>
+
+      <h2 class="services-title">
+        O que gosto de fazer?
+      </h2>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- XADREZ -->
+      <div class="service-card reveal-card">
+        <div class="service-icon" aria-hidden="true">♟</div>
+
+        <h3>JOGAR XADREZ</h3>
+
+        <p>
+          Gosto de jogar xadrez, desenvolver estratégias,
+          exercitar meu raciocínio e enfrentar os desafios
+          que cada partida proporciona.
+        </p>
       </div>
-      <a class="btn-secondary" routerLink="/about">Conheça o processo seletivo</a>
+
+      <!-- VIOLÃO -->
+      <div class="service-card reveal-card">
+        <div class="service-icon" aria-hidden="true">♫</div>
+
+        <h3>TOCAR VIOLÃO</h3>
+
+        <p>
+          A música faz parte da minha vida.
+          Gosto de tocar violão, aprender novas músicas
+          e explorar minha criatividade.
+        </p>
+      </div>
+
+      <!-- ANIMES E SÉRIES -->
+      <div class="service-card reveal-card">
+        <div class="service-icon" aria-hidden="true">★</div>
+
+        <h3>ANIMES E SÉRIES</h3>
+
+        <p>
+          Gosto de assistir animes e séries,
+          acompanhar histórias interessantes
+          e conhecer diferentes personagens
+          e universos.
+        </p>
+      </div>
+
+      <!-- PROGRAMAÇÃO -->
+      <div class="service-card reveal-card">
+        <div class="service-icon" aria-hidden="true">
+          &lt;/&gt;
+        </div>
+
+        <h3>ESTUDAR PROGRAMAÇÃO</h3>
+
+        <p>
+          Gosto de estudar programação,
+          conhecer novas tecnologias,
+          desenvolver minhas habilidades
+          e transformar ideias em projetos.
+        </p>
+      </div>
+
+      <!-- JOGOS -->
+      <div class="service-card reveal-card">
+        <div class="service-icon" aria-hidden="true">🎮</div>
+
+        <h3>JOGAR VIDEOGAME</h3>
+
+        <p>
+          Gosto de aproveitar meu tempo livre
+          jogando videogame, explorando diferentes
+          jogos e me divertindo com novas experiências.
+        </p>
+      </div>
+
     </div>
   </section>
 
+  <!-- CONTATO -->
   <section id="contact">
     <div class="contact-card">
       <div class="contact-left">
-        <p class="contact-pretitle">VAMOS CONVERSAR?</p>
-        <h2>TEM UM DESAFIO? NÓS TEMOS A SOLUÇÃO.</h2>
+        <p class="contact-pretitle">
+          VAMOS CONVERSAR?
+        </p>
+
+        <h2>VAMOS TROCAR IDEIAS?</h2>
+
         <p class="contact-description">
-          Fale com a Hi Tech e descubra como podemos transformar sua ideia em um produto digital com impacto.
+          Estou sempre aberto a conhecer pessoas,
+          compartilhar experiências e conversar sobre
+          tecnologia, aprendizado e novas oportunidades.
         </p>
       </div>
-      <form class="contact-right" [formGroup]="form" (ngSubmit)="publishTask()">
+
+      <form
+        class="contact-right"
+        [formGroup]="form"
+        (ngSubmit)="publishTask()">
+
+        <!-- NOME -->
         <div class="field-group">
-          <label class="label-nome" for="name">Nome</label>
-          <input type="text" id="name" name="name" autocomplete="name" placeholder="Seu nome" formControlName="name" required [attr.aria-invalid]="showError('name')" [attr.aria-describedby]="showError('name') ? 'name-error' : null" />
-          <app-field-error errorId="name-error" [control]="form.get('name')" [messages]="{ required: 'Informe seu nome.', minlength: 'Use pelo menos 3 letras.' }"></app-field-error>
+          <label class="label-nome" for="name">
+            Nome
+          </label>
+
+          <input
+            type="text"
+            id="name"
+            name="name"
+            autocomplete="name"
+            placeholder="Seu nome"
+            formControlName="name"
+            required
+            [attr.aria-invalid]="showError('name')"
+            [attr.aria-describedby]="showError('name') ? 'name-error' : null" />
+
+          <app-field-error
+            errorId="name-error"
+            [control]="form.get('name')"
+            [messages]="{
+              required: 'Informe seu nome.',
+              minlength: 'Use pelo menos 3 letras.'
+            }">
+          </app-field-error>
         </div>
+
+        <!-- E-MAIL -->
         <div class="field-group">
-          <label class="label-email" for="email">E-mail</label>
-          <input type="email" id="email" name="email" autocomplete="email" placeholder="voce@email.com" formControlName="email" required [attr.aria-invalid]="showError('email')" [attr.aria-describedby]="showError('email') ? 'email-error' : null" />
-          <app-field-error errorId="email-error" [control]="form.get('email')" [messages]="{ required: 'Informe seu e-mail.', email: 'Confira o e-mail: use o formato voce@email.com.' }"></app-field-error>
+          <label class="label-email" for="email">
+            E-mail
+          </label>
+
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            placeholder="voce@email.com"
+            formControlName="email"
+            required
+            [attr.aria-invalid]="showError('email')"
+            [attr.aria-describedby]="showError('email') ? 'email-error' : null" />
+
+          <app-field-error
+            errorId="email-error"
+            [control]="form.get('email')"
+            [messages]="{
+              required: 'Informe seu e-mail.',
+              email: 'Confira o formato do e-mail.'
+            }">
+          </app-field-error>
         </div>
+
+        <!-- MENSAGEM -->
         <div class="field-group">
-          <label class="label-mensagem" for="description">Mensagem</label>
-          <textarea id="description" name="description" autocomplete="off" placeholder="Conte rapidamente o que você precisa" formControlName="description" required [attr.aria-invalid]="showError('description')" [attr.aria-describedby]="showError('description') ? 'description-error' : null"></textarea>
-          <app-field-error errorId="description-error" [control]="form.get('description')" [messages]="{ required: 'Conte o que você precisa.', minlength: 'Escreva pelo menos 10 caracteres.' }"></app-field-error>
+          <label class="label-mensagem" for="description">
+            Mensagem
+          </label>
+
+          <textarea
+            id="description"
+            name="description"
+            autocomplete="off"
+            placeholder="Escreva sua mensagem"
+            formControlName="description"
+            required
+            [attr.aria-invalid]="showError('description')"
+            [attr.aria-describedby]="showError('description') ? 'description-error' : null">
+          </textarea>
+
+          <app-field-error
+            errorId="description-error"
+            [control]="form.get('description')"
+            [messages]="{
+              required: 'Escreva uma mensagem.',
+              minlength: 'Escreva pelo menos 10 caracteres.'
+            }">
+          </app-field-error>
         </div>
-        <button type="submit" [disabled]="isLoading" [attr.aria-busy]="isLoading">
-          <ng-container *ngIf="!isLoading">Enviar mensagem</ng-container>
-          <ng-container *ngIf="isLoading">
-            <span class="spinner"></span> Enviando...
+
+        <!-- BOTÃO -->
+        <button
+          type="submit"
+          [disabled]="isLoading"
+          [attr.aria-busy]="isLoading">
+
+          <ng-container *ngIf="!isLoading">
+            Enviar mensagem
           </ng-container>
+
+          <ng-container *ngIf="isLoading">
+            <span class="spinner"></span>
+            Enviando...
+          </ng-container>
+
         </button>
+
       </form>
     </div>
   </section>
 
-  <section *ngIf="costumers.length || partners.length" id="customersPartners">
-    <div *ngIf="costumers.length" id="customers">
-      <h3>{{ templateText.Costumers.sectionTitle }}</h3>
-      <div class="list">
-        <div class="item" *ngFor="let costumer of costumers">
-          <img [src]="costumer.img" alt="Logotipo de cliente da Hi Tech" loading="lazy" decoding="async" />
-        </div>
-      </div>
-    </div>
-    <div *ngIf="partners.length" id="partners">
-      <h3>{{ templateText.Partners.sectionTitle }}</h3>
-      <div class="list">
-        <div class="item" *ngFor="let partner of partners">
-          <img [src]="partner.img" alt="Logotipo de parceiro da Hi Tech" loading="lazy" decoding="async" />
-        </div>
-      </div>
-    </div>
-  </section>
 </div>
